@@ -34,21 +34,27 @@ class LinkedInCommentsFetcher:
                 json.dump(formatted_comments, file, indent=4)
         return formatted_comments
 
+def read_credentials(file_name):
+    with open(file_name, 'r') as file:
+        lines = file.readlines()
+        username = lines[0].strip()
+        password = lines[1].strip()
+        return username, password
+
 if __name__ == "__main__":
     start_time = time.time()  # Start the chronometer
 
-    # LinkedIn API credentials
-    api_username = 'quinocarreteromartinez@gmail.com'
-    api_password = 'Quinito98'
+    # Read credentials from file
+    username, password = read_credentials('credentials.txt')
 
-    # Example Post URN and username
+    fetcher = LinkedInCommentsFetcher(username, password)
+
+    # Example Post URN and LinkedIn username
     post_urn = '7105018421649580033'  # URN of the LinkedIn post
-    username = 'carrie-beam'  # Replace with the actual username
-
-    fetcher = LinkedInCommentsFetcher(api_username, api_password)
+    linkedin_username = 'miniquinox'  # Replace with the actual username
 
     # Retrieve formatted comments as a dictionary and save to file
-    comments_dict = fetcher.get_comments_dict(post_urn, username, save_to_file=True)
+    comments_dict = fetcher.get_comments_dict(post_urn, linkedin_username, save_to_file=True)
 
     end_time = time.time()  # End the chronometer
     elapsed_time = end_time - start_time

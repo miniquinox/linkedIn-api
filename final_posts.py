@@ -1,6 +1,6 @@
 import json
-from linkedin_api import Linkedin
 import time
+from linkedin_api import Linkedin
 
 class LinkedInDataFetcher:
     def __init__(self, username, password):
@@ -40,15 +40,25 @@ class LinkedInDataFetcher:
                 json.dump(processed_posts, file, indent=4)
         return processed_posts
 
+def read_credentials(file_name):
+    with open(file_name, 'r') as file:
+        lines = file.readlines()
+        username = lines[0].strip()
+        password = lines[1].strip()
+        return username, password
+
 if __name__ == "__main__":
-    start_time = time.time()  # Start the chronometer
+    start_time = time.time()
 
-    fetcher = LinkedInDataFetcher('your_email', 'your_password')
-    username = 'carrie-beam'  # Replace with the actual username
-    post_count = 100  # Number of posts to retrieve
+    # Read credentials from file
+    username, password = read_credentials('credentials.txt')
 
-    posts_data = fetcher.fetch_and_process_posts(username, post_count, save_to_file=True)
+    fetcher = LinkedInDataFetcher(username, password)
+    username_to_fetch = 'miniquinox'
+    post_count = 100
 
-    end_time = time.time()  # End the chronometer
+    posts_data = fetcher.fetch_and_process_posts(username_to_fetch, post_count, save_to_file=True)
+
+    end_time = time.time()
     elapsed_time = end_time - start_time
     print(f"Total time taken: {elapsed_time:.2f} seconds")
