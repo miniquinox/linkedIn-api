@@ -43,8 +43,8 @@ if __name__ == "__main__":
     start_time = time.time()  # Start the chronometer
 
     # LinkedIn API credentials
-    api_username = 'quinocarreteromartinez@gmail.com'
-    api_password = 'Quinito98'
+    api_username = 'your_email'
+    api_password = 'your_password'
 
     # Company identifier (public_id or urn_id)
     public_id = 'meta'  # Replace with actual company public ID

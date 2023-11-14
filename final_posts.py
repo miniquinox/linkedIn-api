@@ -43,7 +43,7 @@ class LinkedInDataFetcher:
 if __name__ == "__main__":
     start_time = time.time()  # Start the chronometer
 
-    fetcher = LinkedInDataFetcher('quinocarreteromartinez@gmail.com', 'Quinito98')
+    fetcher = LinkedInDataFetcher('your_email', 'your_password')
     username = 'carrie-beam'  # Replace with the actual username
     post_count = 100  # Number of posts to retrieve
 
