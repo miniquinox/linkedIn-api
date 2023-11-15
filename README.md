@@ -34,15 +34,13 @@ To run the scripts, use the following commands in your terminal:
 
 ### Fetching LinkedIn Posts
 ```bash
-python linkedin_posts_fetcher.py
+python final_posts.py
 ```
 
 ### Fetching LinkedIn Comments
 ```bash
-python linkedin_comments_fetcher.py
+python final_comments.py
 ```
-
-Replace `final_posts.py` and `final_comments.py` with the actual names of your Python scripts.
 
 ## Output
 The scripts will output formatted LinkedIn posts and comments data into JSON files in a `temp` directory.
