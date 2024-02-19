@@ -54,8 +54,8 @@ if __name__ == "__main__":
     username, password = read_credentials('credentials.txt')
 
     fetcher = LinkedInDataFetcher(username, password)
-    username_to_fetch = 'miniquinox'
-    post_count = 100
+    username_to_fetch = 'kfjordan'
+    post_count = 1000
 
     posts_data = fetcher.fetch_and_process_posts(username_to_fetch, post_count, save_to_file=True)
 

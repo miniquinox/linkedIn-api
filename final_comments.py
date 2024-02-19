@@ -7,7 +7,7 @@ class LinkedInCommentsFetcher:
         self.api = Linkedin(username, password)
 
     def get_comments_from_post(self, post_urn):
-        return self.api.get_post_comments(post_urn)
+        return self.api.get_post_comments(post_urn, comment_count=1000)
 
     def format_comment_data(self, comments):
         formatted_comments = []
@@ -50,8 +50,8 @@ if __name__ == "__main__":
     fetcher = LinkedInCommentsFetcher(username, password)
 
     # Example Post URN and LinkedIn username
-    post_urn = '7105018421649580033'  # URN of the LinkedIn post
-    linkedin_username = 'miniquinox'  # Replace with the actual username
+    post_urn = '7115455569485840384'  # URN of the LinkedIn post
+    linkedin_username = 'williamhgates'  # Replace with the actual username
 
     # Retrieve formatted comments as a dictionary and save to file
     comments_dict = fetcher.get_comments_dict(post_urn, linkedin_username, save_to_file=True)
